@@ -1,0 +1,26 @@
+version: 2
+jobs:
+  build:
+    # 使用するDockerイメージ
+    docker:
+      - image: circleci/python:3.8
+    working_directory: ~/repo
+    # 処理内容
+    steps:
+      - checkout
+      - restore_cache:
+          key: deps1-{{ .master }}-{{ checksum "requirements.txt" }}
+      - run:
+          command:
+            pip install -r requirements.txt
+      - save_cache:
+          key: deps1-{{ .master }}-{{ checksum "requirements.txt" }}
+          paths:
+            - "venv"
+      - run:
+          name: Running tests
+          command:
+            python manage.py test
+      - store_artifacts:
+          path: test-reports/
+          destination: python_app
