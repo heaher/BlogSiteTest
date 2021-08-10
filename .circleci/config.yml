@@ -2,11 +2,12 @@ version: 2
 jobs:
   build:
     # 使用するDockerイメージ
+    working_directory: ~/repo
     docker:
       - image: circleci/python:3.8
 
       
-    working_directory: ~/repo
+    
     # 処理内容
     
       
