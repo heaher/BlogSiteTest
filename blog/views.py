@@ -283,3 +283,6 @@ class AddTagView(LoginRequiredMixin,CreateView):
     model = Tag
     form_class = TagForm
     success_url = reverse_lazy('blog:tag_list')
+
+def add(x, y):
+    return x + y

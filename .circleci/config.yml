@@ -8,15 +8,15 @@ jobs:
     # 処理内容
     steps:
       - checkout
-      - restore_cache:
-          key: deps1-{{ .master }}-{{ checksum "requirements.txt" }}
+      #- restore_cache:
+      #    key: deps1-{{ .master }}-{{ checksum "requirements.txt" }}
       - run:
           command:
             pip install -r requirements.txt
-      - save_cache:
-          key: deps1-{{ .master }}-{{ checksum "requirements.txt" }}
-          paths:
-            - "venv"
+      #- save_cache:
+      #    key: deps1-{{ .master }}-{{ checksum "requirements.txt" }}
+      #    paths:
+      #      - "venv"
       - run:
           name: Running tests
           command:
