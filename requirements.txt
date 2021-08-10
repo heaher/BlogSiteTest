@@ -9,5 +9,5 @@ pytz==2020.1
 setuptools==50.3.2
 soupsieve==2.0.1
 sqlparse==0.4.1
-mod_wsgi
-mod_wsgi-httpd
+#mod_wsgi
+#mod_wsgi-httpd
