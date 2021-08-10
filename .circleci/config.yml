@@ -4,27 +4,22 @@ jobs:
     # 使用するDockerイメージ
     working_directory: ~/repo
     docker:
-      - image: circleci/python:3.8
-
+    - image: circleci/python:3.8    
       
-    
-    # 処理内容
-    
-      
-      - image: circleci/mysql:8.0.12
-        command: |
-          mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
-        environment:
-          MYSQL_ALLOW_EMPTY_PASSWORD:"yes"  
-          MYSQL_DATABASE:sample_test
-          MYSQL_ROOT_HOST:"127.0.0.1"
-          MYSQL_ROOT_PASSWORD:''
-          MYSQL_USER:root
-          MYSQL_PASSWORD:root
-          MYSQL_ROOT_HOST:'%'
+    - image: circleci/mysql:8.0.12
+      command: |
+        mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
+      environment:
+        MYSQL_ALLOW_EMPTY_PASSWORD:"yes"  
+        MYSQL_DATABASE:sample_test
+        MYSQL_ROOT_HOST:"127.0.0.1"
+        MYSQL_ROOT_PASSWORD:''
+        MYSQL_USER:root
+        MYSQL_PASSWORD:root
+        MYSQL_ROOT_HOST:'%'
 
 
-        command: [--default-authentication-plugin=mysql_native_password]
+      command: [--default-authentication-plugin=mysql_native_password]
     steps:
       - checkout
       
